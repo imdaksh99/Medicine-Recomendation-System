@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Developers - Daksh & Arun</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       body {
+    background: url("{{ url_for('static', filename='bg.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+  }
+  .container, .dev-card, .contact-box, .about-box, .blog-card, .navbar, .modal-content {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    border-radius: 10px;
+  }
+  h1, h2, h3, h4, p, label, .nav-link, .navbar-brand {
+    color: white !important;
+  }
+  .form-control {
+    background-color: rgba(255,255,255,0.8);
+    color: #000;
+  }
+        .dev-card {
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #f8f9fa;
+        }
+        .logo {
+        width: 50px;
+        height: 50px;
+        margin-top: 0;
+        margin-left: 2px;
+      }
+      .myimg {
+        width: 50px;
+        height: 50px;
+        border: 2px solid black;
+        border-radius: 25px;
+      }
+      .nav-link.active {
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div class="logo">
+          <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="Logo">
+        </div>
+        <a class="navbar-brand" href="/index">Health Center</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/developer">Developer</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 text-center">
+        <h1>Meet the Developers</h1>
+        <hr>
+
+        <!-- Daksh -->
+        <div class="dev-card">
+            <h3>Daksh</h3>
+            <p>I am currently in 12th class and I worked on the <strong>Front-End Development</strong> of this AI Health Assistant Project. I have a passion for UI/UX and web technologies.</p>
+        </div>
+
+        <!-- Arun -->
+        <div class="dev-card">
+            <h3>Arun</h3>
+            <p>Arun contributed to the <strong>Machine Learning and Model Integration</strong> part of the project. He handled all ML logic and prediction systems.</p>
+        </div>
+    </div>
+</body>
+</html>
