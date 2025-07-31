@@ -169,27 +169,29 @@
         </div>
     </div>
 
-
-
-
-    <!-- Medications Modal -->
-    <div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #020606; color:white;">
-                    <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        {% for i in medications %}
-                            <li>{{ i }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+<!-- Medications Modal -->
+<div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #020606; color:white;">
+        <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% if medications %}
+          <ul>
+            {% for med in medications %}
+              {% set clean = med.replace('[','').replace(']','').replace("'", '') %}
+              <li>{{ clean }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No medications found for this disease.</p>
+        {% endif %}
+      </div>
     </div>
+  </div>
+</div>
 
     <!-- Workouts Modal -->
     <div class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
@@ -210,24 +212,30 @@
         </div>
     </div>
 
-    <!-- Diets Modal -->
-    <div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #020606; color:white;">
-                    <h5 class="modal-title" id="dietsModalLabel">Diets</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        {% for i in my_diet %}
-                            <li>{{ i }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <!-- Diets Modal -->
+<!-- Diets Modal -->
+<div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #020606; color:white;">
+        <h5 class="modal-title" id="dietsModalLabel">Diets</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% if my_diet %}
+          <ul>
+            {% for i in my_diet %}
+              {% set clean = i.replace('[','').replace(']','').replace("'", '') %}
+              <li>{{ clean }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No diet recommendations found for this disease.</p>
+        {% endif %}
+      </div>
     </div>
+  </div>
+</div>
 
        <script>
     const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
