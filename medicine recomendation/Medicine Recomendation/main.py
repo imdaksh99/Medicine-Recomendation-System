@@ -39,8 +39,13 @@ def helper(dis):
             med += [x.strip() for x in item.split(',')]
 
     die = diets[diets['Disease'] == dis]['Diet']
-    die = [die for die in die.values]
+    die_raw = [die for die in die.values]
 
+    die = []
+    for item in die_raw:
+        if isinstance(item,str):
+            die += [x.strip() for x in item.split(',')]
+            
     wrkout = workout[workout['disease'] == dis]['workout']
 
     return desc, pre, med, die, wrkout
